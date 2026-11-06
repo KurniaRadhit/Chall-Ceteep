@@ -38,8 +38,7 @@ modulus, eksponen = buat_kunci()
 
 ciphertext = enkripsi(pesan, modulus, eksponen)
 
-with open("output.txt", "w", encoding="utf-8") as file:
-    file.write(f"n = {modulus}\n")
-    file.write(f"e = {eksponen}\n")
-    file.write("ciphertext =\n")
-    file.write(" ".join(map(str, ciphertext)))
+print(f"n = {modulus}")
+print(f"e = {eksponen}")
+print("ciphertext =")
+print(" ".join(map(str, ciphertext)))
