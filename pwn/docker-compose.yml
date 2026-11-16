@@ -1,15 +1,20 @@
-#!/bin/bash
-set -e
-
-echo "[*] Build & jalankan container..."
-docker compose up --build -d
-
-echo "[*] Nunggu container siap..."
-sleep 2
-
-echo "[*] Salin binary dari container ke folder ini..."
-docker cp fmt2win:/chall/chall ./chall
-chmod 755 ./chall
-
-echo "[+] Selesai. Binary ada di: $(pwd)/chall"
-ls -la ./chall
+services:
+  fmt2win:
+    build:
+      context: .
+      args:
+        FLAG: "LKS{e92b7a4c1d8f6035a9c2e7b4f16d8305}"
+    container_name: fmt2win
+    ports:
+      - "9999:9999"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 50
+    mem_limit: 128m
+    cpus: 0.5
