@@ -10,8 +10,6 @@ Web Exploitation
 
 ## Description
 
-Simple Login Portal. Temukan flag di sistem ini.
-
 Flag format: `LKS{...}`
 
 ## Attachment
