@@ -1,7 +1,8 @@
 # n = modulus RSA dari challenge
 # e = 65537
-# c = list 37 ciphertext dari challenge
+# c = """list 37 ciphertext dari challeng"""
 
+c = list(map(int, c.split()))
 lookup = {
     pow(byte, e, n): byte
     for byte in range(256)
