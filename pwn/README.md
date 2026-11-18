@@ -10,8 +10,6 @@ Pwn
 
 ## Description
 
-Sistem pendataan sederhana. Masukkan nama lengkap dan username CTF-mu, lalu temukan flag yang tersembunyi di server.
-
 Flag format: `LKS{...}`
 
 ## Attachment
