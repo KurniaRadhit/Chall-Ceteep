@@ -1,0 +1,36 @@
+services:
+  web:
+    build: .
+    container_name: ctf_sqli_web
+    restart: unless-stopped
+    ports:
+      - "8100:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DB_HOST=db
+      - DB_USER=Storeapp01
+      - DB_PASS=Kj7mPz2qXr
+      - DB_NAME=Shopdb10
+
+  db:
+    image: mariadb:10.11
+    container_name: ctf_sqli_db
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_PASSWORD=Tn9vLq4eRbWc
+      - MARIADB_DATABASE=Shopdb10
+      - MARIADB_USER=Storeapp01
+      - MARIADB_PASSWORD=Kj7mPz2qXr
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  db_data:
