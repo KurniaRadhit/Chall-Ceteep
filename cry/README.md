@@ -10,8 +10,6 @@ Cryptography
 
 ## Description
 
-Seorang developer membuat "enkripsi RSA" untuk melindungi flag. Kuncinya 1024-bit dan eksponen publiknya standar, jadi seharusnya aman. Benarkah? Temukan flag yang tersembunyi dari ciphertext yang diberikan.
-
 Flag format: `LKS{...}`
 
 ## Attachment
